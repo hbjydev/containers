@@ -49,7 +49,7 @@ jobs:
     name: Build ${{ matrix.app }}
     needs:
       - prepare
-    runs-on: docker
+    runs-on: dind
     strategy:
       matrix:
         app: ${{ fromJSON(needs.prepare.outputs.changed-files) }}
