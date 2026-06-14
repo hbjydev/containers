@@ -15,4 +15,5 @@ func Test(t *testing.T) {
 	// available.
 	testhelpers.TestCommandSucceeds(t, context.Background(), image, nil, "gws", "--version")
 	testhelpers.TestCommandSucceeds(t, context.Background(), image, nil, "ob", "--version")
+	testhelpers.TestCommandSucceeds(t, context.Background(), image, nil, "kubectl", "version", "--client", "--output=yaml")
 }
