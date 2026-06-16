@@ -2,7 +2,7 @@ ARG VERSION
 FROM nousresearch/hermes-agent:${VERSION}
 
 # renovate: datasource=npm depName=obsidian-headless
-ARG OBSIDIAN_HEADLESS_VERSION=0.0.11
+ARG OBSIDIAN_HEADLESS_VERSION=0.0.12
 # renovate: datasource=npm depName=@googleworkspace/cli
 ARG GWS_CLI_VERSION=0.22.5
 # renovate: datasource=github-releases depName=kubernetes/kubectl
