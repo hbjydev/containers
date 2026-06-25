@@ -49,3 +49,5 @@ RUN curl -fsSL "https://dl.k8s.io/release/${KUBECTL_VERSION}/bin/${TARGETOS}/${T
 COPY --chmod=0755 entrypoint.sh /entrypoint.sh
 
 USER hermes
+
+ENTRYPOINT [ "/entrypoint.sh" ]
