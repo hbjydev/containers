@@ -23,7 +23,7 @@ COPY --from=ghcr.io/astral-sh/uv:0.11.24 /uv /uvx /usr/local/bin/
 
 RUN useradd -u 1000 -M -U -s /bin/bash hermes
 
-RUN uv python install 3.12
+RUN uv python install 3.12 --install-dir /usr/local/share/uvpython
 RUN uv venv --python 3.12
 RUN uv pip install 'hermes-agent[all]==0.17.0' --prefix /app/.venv
 
