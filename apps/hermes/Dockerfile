@@ -7,7 +7,8 @@ ARG UV_VERSION
 ARG BUN_VERSION
 
 ENV \
-  PATH="${PATH}:/usr/local/bin:/app/.venv:/app/node_modules/.bin" \
+  PATH="${PATH}:/usr/local/bin:/app/.venv/bin:/app/node_modules/.bin" \
+  PYTHON_VIRTUALENV=/app/.venv \
   UV_COMPILE_BYTECODE=0 \
   PYTHONDONTWRITEBYTECODE=1 \
   PYTHONUNBUFFERED=1 \

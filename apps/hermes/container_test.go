@@ -10,6 +10,8 @@ import (
 func Test(t *testing.T) {
 	image := testhelpers.GetTestImage("forgejo.hayden.moe/hayden/containers/hermes:rolling")
 
+	testhelpers.TestCommandSucceeds(t, context.Background(), image, nil, "hermes", "--version")
+
 	// The point of this image is to install extra tools for myself on the image
 	// used to run Hermes, so this test just checks that those tools are
 	// available.
