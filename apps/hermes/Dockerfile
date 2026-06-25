@@ -16,7 +16,7 @@ ENV \
 
 RUN microdnf upgrade -y && \
     curl -fsSL https://rpm.nodesource.com/setup_24.x | bash - && \
-    microdnf install -y make git gcc gcc-c++ nodejs tar && \
+    microdnf install -y make git gcc gcc-c++ nodejs tar opus && \
     microdnf clean all -y
 
 COPY --from=ghcr.io/astral-sh/uv:0.11.24 /uv /uvx /usr/local/bin/
@@ -25,7 +25,7 @@ RUN useradd -u 1000 -M -U -s /bin/bash hermes
 
 RUN uv python install 3.12 --install-dir /usr/local/share/uvpython
 RUN uv venv --python 3.12
-RUN uv pip install 'hermes-agent[cron,cli,pty,mcp,homeassistant,acp,web,google,messaging]==0.17.0' --prefix /app/.venv
+RUN uv pip install libnacl 'hermes-agent[cron,cli,pty,mcp,homeassistant,acp,web,google,messaging]==0.17.0' --prefix /app/.venv
 
 # renovate: datasource=npm depName=obsidian-headless
 ARG OBSIDIAN_HEADLESS_VERSION=0.0.12
