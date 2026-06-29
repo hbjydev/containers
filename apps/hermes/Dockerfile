@@ -19,7 +19,7 @@ RUN microdnf upgrade -y && \
     microdnf install -y make git gcc gcc-c++ nodejs tar opus && \
     microdnf clean all -y
 
-COPY --from=ghcr.io/astral-sh/uv:0.11.24 /uv /uvx /usr/local/bin/
+COPY --from=ghcr.io/astral-sh/uv:0.11.25 /uv /uvx /usr/local/bin/
 
 RUN useradd -u 1000 -M -U -s /bin/bash hermes
 
