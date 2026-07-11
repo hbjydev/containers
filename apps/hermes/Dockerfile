@@ -25,7 +25,7 @@ RUN useradd -u 1000 -M -U -s /bin/bash hermes
 
 RUN uv python install 3.12 --install-dir /usr/local/share/uvpython
 RUN uv venv --python 3.12
-RUN uv pip install libnacl 'hermes-agent[cron,cli,edge-tts,pty,mcp,homeassistant,acp,web,google,messaging]==0.17.0' --prefix /app/.venv
+RUN uv pip install libnacl anthropic 'hermes-agent[cron,cli,edge-tts,pty,mcp,homeassistant,acp,web,google,messaging]==0.17.0' --prefix /app/.venv
 
 # renovate: datasource=npm depName=obsidian-headless
 ARG OBSIDIAN_HEADLESS_VERSION=0.0.12
