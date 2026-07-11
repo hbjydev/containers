@@ -28,7 +28,7 @@ RUN uv venv --python 3.12
 RUN uv pip install libnacl 'hermes-agent[cron,cli,edge-tts,pty,mcp,homeassistant,acp,web,google,messaging]==0.17.0' --prefix /app/.venv
 
 # renovate: datasource=npm depName=obsidian-headless
-ARG OBSIDIAN_HEADLESS_VERSION=0.0.12
+ARG OBSIDIAN_HEADLESS_VERSION=0.0.13
 # renovate: datasource=npm depName=@googleworkspace/cli
 ARG GWS_CLI_VERSION=0.22.5
 # renovate: datasource=github-releases depName=kubernetes/kubectl
