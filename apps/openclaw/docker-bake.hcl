@@ -14,7 +14,7 @@ variable "SOURCE" {
 }
 
 variable "REGISTRY" {
-  default = "forgejo.hayden.moe/hayden/containers"
+  default = "git.hayden.moe/hayden/containers"
 }
 
 variable "GIT_SHA" {

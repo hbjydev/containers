@@ -8,7 +8,7 @@ import (
 )
 
 func Test(t *testing.T) {
-	image := testhelpers.GetTestImage("forgejo.hayden.moe/hayden/containers/openclaw:rolling")
+	image := testhelpers.GetTestImage("git.hayden.moe/hayden/containers/openclaw:rolling")
 
 	testhelpers.TestCommandSucceeds(t, context.Background(), image, nil, "openclaw", "--version")
 
