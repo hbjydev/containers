@@ -1,0 +1,53 @@
+target "docker-metadata-action" {}
+
+variable "APP" {
+  default = "openclaw"
+}
+
+variable "VERSION" {
+  // renovate: datasource=docker depName=ghcr.io/openclaw/openclaw
+  default = "2026.9.3"
+}
+
+variable "SOURCE" {
+  default = "https://github.com/openclaw/openclaw"
+}
+
+variable "REGISTRY" {
+  default = "forgejo.hayden.moe/hayden/containers"
+}
+
+variable "GIT_SHA" {
+  default = "dev"
+}
+
+group "default" {
+  targets = ["image-local"]
+}
+
+target "image" {
+  inherits = ["docker-metadata-action"]
+  args = {
+    VERSION = "${VERSION}"
+  }
+  labels = {
+    "org.opencontainers.image.source" = "${SOURCE}"
+  }
+}
+
+target "image-local" {
+  inherits = ["image"]
+  output = ["type=docker"]
+  tags = ["${APP}:${VERSION}"]
+}
+
+target "image-all" {
+  inherits = ["image"]
+  platforms = [
+    "linux/amd64"
+  ]
+  tags = [
+    "${REGISTRY}/${APP}:rolling",
+    "${REGISTRY}/${APP}:${VERSION}-${substr(GIT_SHA, 0, 7)}"
+  ]
+}
