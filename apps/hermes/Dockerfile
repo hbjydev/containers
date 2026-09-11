@@ -51,6 +51,9 @@ RUN curl -fsSL https://mise.run -o /tmp/install-mise.sh \
     && sh /tmp/install-mise.sh \
     && rm /tmp/install-mise.sh
 
+RUN activation='eval "$(mise activate bash)"' \
+    && grep -qxF "$activation" ~/.bashrc 2>/dev/null || printf '%s\n' "$activation" >> ~/.bashrc
+
 COPY --chmod=0755 entrypoint.sh /entrypoint.sh
 
 USER hermes
