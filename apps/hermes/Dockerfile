@@ -46,6 +46,11 @@ RUN npm install \
 RUN curl -fsSL "https://dl.k8s.io/release/${KUBECTL_VERSION}/bin/${TARGETOS}/${TARGETARCH}/kubectl" -o /usr/local/bin/kubectl && \
   chmod +x /usr/local/bin/kubectl
 
+ENV MISE_INSTALL_PATH=/usr/local/bin/mise
+RUN curl -fsSL https://mise.run -o /tmp/install-mise.sh \
+    && sh /tmp/install-mise.sh \
+    && rm /tmp/install-mise.sh
+
 COPY --chmod=0755 entrypoint.sh /entrypoint.sh
 
 USER hermes
