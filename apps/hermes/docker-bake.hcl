@@ -6,7 +6,7 @@ variable "APP" {
 
 variable "VERSION" {
   // renovate: datasource=docker depName=nousresearch/hermes-agent
-  default = "v2026.9.21"
+  default = "v2026.9.24"
 }
 
 variable "SOURCE" {
